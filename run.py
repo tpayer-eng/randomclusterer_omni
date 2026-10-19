@@ -21,5 +21,5 @@ pd.DataFrame({"cell_id": cells, "louvain": labels, "leiden": labels}) \
 
 json.dump({}, open(out("timings.json"), "w"))
 json.dump({}, open(out("clustering_info.json"), "w"))
-open(out("hvgs.tsv"), "w").close()
-pd.DataFrame(index=cells).to_csv(out("pca.tsv"), sep="\t", index_label="cell_id")
+open(out("hvgs.tsv"), "w").write("dummy\n")
+pd.DataFrame({"PC1": np.zeros(len(cells))}, index=cells).to_csv(out("pca.tsv"), sep="\t", index_label="cell_id")
